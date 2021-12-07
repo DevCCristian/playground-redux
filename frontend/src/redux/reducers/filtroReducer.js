@@ -1,7 +1,7 @@
 
 const initialState = {
     productos:[],
-    usuario:{name:'', email:''},
+    usuario:{userName:''},
     auxiliar:[]
 }
 
@@ -26,9 +26,16 @@ const filtroReducer = (state = initialState, action)=>{
                 ...state,
                 usuario: action.payload
             }
+        case 'cargarProducto':
+            let productos = [...state.productos]
+            productos.push(action.payload)
+            return{
+                ...state,
+                productos,
+                auxiliar: [...productos]
+            }
 
         case 'filtro':
-
             const filtrado = action.payload.productos.filter((product => product.name.toLowerCase().startsWith(action.payload.value.toLowerCase())))
 
             return {

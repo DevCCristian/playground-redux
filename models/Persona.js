@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const personaSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    edad: {type: Number, default: 0} ,
+    userName: {type: String, required:true},
+    password: {type:String, required:true},
 })
 
 const Persona = mongoose.model('persona', personaSchema)

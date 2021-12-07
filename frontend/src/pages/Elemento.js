@@ -1,9 +1,9 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import Header from '../components/Header'
 import {connect} from 'react-redux'
-class Elemento extends React.Component {
 
+class Elemento extends React.Component {
     constructor(props) {
         super(props)
         console.log(props)
@@ -16,8 +16,6 @@ class Elemento extends React.Component {
 
     componentDidMount() {
         this.setState({elemento:this.props.productos.find(p => p._id === this.id)})
-        // axios.get('http://localhost:4000/api/'+this.endpoint+'/'+this.id)
-        // .then(response => this.setState({elemento:response.data.respuesta}))
     }
 
     render() { 

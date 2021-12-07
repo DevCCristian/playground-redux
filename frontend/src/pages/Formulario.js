@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from "../components/Header";
-import axios from "axios";
 import Inputs from '../components/Inputs'
 import {connect} from 'react-redux';
 import filtroActions from '../redux/actions/filtroActions'
@@ -8,16 +7,16 @@ import filtroActions from '../redux/actions/filtroActions'
 class Formulario extends React.Component {
 
 
-    handleSubmit = async (name, email)=>{
-        this.props.cargarUsuario(name,email)
+    handleSubmit = async (name, precio)=>{
+        this.props.cargarProducto(name,precio)
 
     }
 
     render() { 
-        console.log(this.props)
         return (
         <div className="container">
             <Header/>
+            <h1 style={{width:'100%',textAlign:'center'}}>Cargar Productos</h1>
             <main className="main-formulario">
                 <Inputs handleSubmit={this.handleSubmit}/>
             </main>
@@ -31,7 +30,7 @@ class Formulario extends React.Component {
      }
  }
  const mapDispatchToProps = {
-    cargarUsuario: filtroActions.cargarUsuario
+    cargarProducto: filtroActions.cargarProducto
  }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Formulario);

@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 import Header from '../components/Header'
 import {Link} from 'react-router-dom'
 import Filtro from '../components/Filtro'
@@ -13,32 +13,15 @@ class Lista extends React.Component {
     
     componentDidMount() {
         // this.setState({arrayRender:this.props.productos})
-        this.props.fetchearProductos()
-    }
-
-    cambiarLista = (endpoint)=>{
-
-        if (!this.state[endpoint].length) {
-            axios.get(`http://localhost:4000/api/${endpoint}`)
-            .then(res => this.setState({[endpoint]:res.data.respuesta, arrayRender:res.data.respuesta}))
-        }else{
-            this.setState({arrayRender:this.state[endpoint]})
+        if (this.props.productos.length < 1) {
+            this.props.fetchearProductos()
         }
-
     }
+
     handleDelete = (id)=>{
         this.props.borrarProducto(id)
-        // try{
-        //     const respuesta = await axios.delete('http://localhost:4000/api/productos/'+ id)
-        //     this.setState({arrayRender: respuesta.data.respuesta})
-        // }catch(error){
-        //     console.log(error)
-        // }
-        
     }
     render() { 
-        console.log(this.props)
-
         return (
         <div className="container">
             <Header/>
@@ -47,7 +30,6 @@ class Lista extends React.Component {
                 <Filtro filtrar={this.props.filtrar} productos={this.props.auxiliar}/>
                 <div className="contenedor-listas">
                     <div className="lista">
-
                         { this.props.productos && this.props.productos.map((elemento) =>{
                                const endpoint = elemento.img ? 'animes' : elemento.precio ? 'productos' : 'personas'
                                 return (

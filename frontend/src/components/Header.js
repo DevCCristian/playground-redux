@@ -8,8 +8,10 @@ function Header(props) {
             <Link to="/">Home</Link>
             <Link to="/lista">Listas</Link>
             <Link to="/formulario">Formulario</Link>
+            <Link to="/registro">Registro</Link>
+            <Link to="/inicioSesion">Inicio sesion</Link>
         </nav>
-        {props.usuario.name !== '' ? <h1>Bienvenido {props.usuario.name}</h1>: <h1>No estas logueado</h1>}
+        {props.usuario.userName !== '' ? <h1>Bienvenido {props.usuario.userName}</h1> : <h1>No estas registrado</h1>}
     </header> );
 }
 const mapStateToProps = (state) =>{
