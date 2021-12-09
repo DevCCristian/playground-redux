@@ -16,8 +16,9 @@ function Header(props) {
 }
 const mapStateToProps = (state) =>{
     return {
-        usuario: state.filtroReducer.usuario
+        usuario: state.authReducer.usuario
     }
 } 
-
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = {
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

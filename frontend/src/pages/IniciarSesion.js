@@ -14,7 +14,7 @@ const IniciarSesion = (props)=>{
     return (
         <div className="container">
             <Header nombreUsuario={props.usuario.userName}/>
-            <h1 style={{width: '100%',textAlign:'center'}}> Registrate</h1>
+            <h1 style={{width: '100%',textAlign:'center'}}> Inicia sesión</h1>
             <main className="main-formulario">
                 <Inputs data={{first:'Usuario',second:'Constraseña'}} handleSubmit={handleSubmit}/>
             </main>

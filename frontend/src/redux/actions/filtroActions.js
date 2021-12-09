@@ -11,8 +11,21 @@ const filtroActions = {
     },
     borrarProducto: (id)=>{
         return async(dispatch, getState) => {
-            const res = await axios.delete('http://localhost:4000/api/productos/'+id)
+            const token = localStorage.getItem('token')
+            console.log(token)
+            try {
+            
+            const res = await axios.delete('http://localhost:4000/api/productos/'+id,{
+                headers:{
+                    'Authorization': 'Bearer '+token
+                }
+            })
+
             dispatch({type:'delete', payload:res.data.respuesta})
+
+            }catch(err){
+                console.log(err)
+            }
         }
     },
     filtrar: (productos, value)=>{
@@ -22,8 +35,14 @@ const filtroActions = {
     },
     cargarProducto: (name,precio)=>{
         return async(dispatch,getState)=>{
-            const respuesta = await axios.post('http://localhost:4000/api/productos',{name,precio})
+            const token = localStorage.getItem('token')
+            const respuesta = await axios.post('http://localhost:4000/api/productos',{name,precio},{
+                headers:{ 
+                    'Authorization':`Bearer ${token}`
+                }
+            })
             dispatch({type:'cargarProducto', payload:respuesta.data.respuesta})
+
         }
     }
 

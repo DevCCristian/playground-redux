@@ -4,15 +4,17 @@ const authControllers = require('../controllers/personasControllers')
 const validator = require('../config/validator')
 const { obtenerProductos, cargarUnProducto, obtenerUnProducto, borrarUnProducto, modificarProducto } = productosControllers
 const { nuevoUsuario, accederACuenta } = authControllers
+const passport = require('../config/passport')
+
 
 Router.route('/productos')
 .get(obtenerProductos)
-.post(cargarUnProducto)
+.post(passport.authenticate('jwt',{ session:false }), cargarUnProducto)
 // .put(modificarProducto)
 
 Router.route('/productos/:id')
 .get(obtenerUnProducto)
-.delete(borrarUnProducto)
+.delete(passport.authenticate('jwt',{ session:false}),borrarUnProducto)
 .put(modificarProducto)
 
 Router.route('/auth/signUp')
