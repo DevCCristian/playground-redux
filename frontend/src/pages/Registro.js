@@ -25,14 +25,22 @@ const Registro = (props)=>{
             }))
         }
     }
+    const responseGoogle = ()=>{
 
+    }
     return (
         <div className="container">
             <Header nombreUsuario={props.usuario.userName}/>
             <h1 style={{width: '100%',textAlign:'center'}}> Registrate</h1>
             <main className="main-formulario">
                 <Inputs data={{first:'Usuario',second:'Constraseña'}} handleSubmit={handleSubmit}/>
-               
+                <GoogleLogin
+                    clientId="792597804652-chf148td0ta5poev1v7esv340jehjfp9.apps.googleusercontent.com"
+                    buttonText="Login"
+                    onSuccess={responseGoogle}
+                    onFailure={responseGoogle}
+                    cookiePolicy={'single_host_origin'}
+                />
             </main>
         </div>
     )
