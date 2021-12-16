@@ -8,8 +8,12 @@ function Header(props) {
             <Link to="/">Home</Link>
             <Link to="/lista">Listas</Link>
             <Link to="/formulario">Formulario</Link>
-            <Link to="/registro">Registro</Link>
-            <Link to="/inicioSesion">Inicio sesion</Link>
+            {
+                props.usuario.userName === '' && (<>
+                <Link to="/registro">Registro</Link>
+                <Link to="/inicioSesion">Inicio sesion</Link>
+                </>)
+            }
         </nav>
         {props.usuario.userName !== '' ? <h1>Bienvenido {props.usuario.userName}</h1> : <h1>No estas registrado</h1>}
     </header> );

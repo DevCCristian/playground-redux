@@ -22,7 +22,7 @@ const authControllers = {
 
             const usuarioExiste = await Persona.findOne({userName})
             if (usuarioExiste){
-                res.json({success: false, error:"El nombre de usuario ya esta en uso", response:null})
+                res.json({success: false, errores:[{message:"El nombre de usuario ya esta en uso"}], response:null})
             }else{
 
                 const contraseñaHasheada = bcryptjs.hashSync(password, 10)

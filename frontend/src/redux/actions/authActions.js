@@ -13,7 +13,7 @@ const authActions = {
                 }else{
                     // alert(user.data.error)
                     console.error(user.data.response)
-                    return {errores: [{message:user.data.error}]}
+                    return {errores: user.data.errores}
                 }
             }catch(error){
                 
@@ -34,6 +34,12 @@ const authActions = {
             }catch(error){
                 console.error(error)
             }
+        }
+    },
+    logOut: () => {
+        return (dispatch, getState)=>{
+            localStorage.clear()
+            dispatch({type:'logOut', payload:{}})
         }
     }
 }

@@ -121,3 +121,42 @@ form{
   outline: none;
   margin-left: 10px;
 }
+
+
+.prueba-transition{
+  width: 20vw;
+  height: 20vh;
+  background-color: aqua;
+  display: flex;
+}
+.prueba-boton{
+  margin: 5px;
+  padding: 10px;
+  background-color: red;
+  align-self: flex-start;
+  border-radius: 10px;
+  color: white;
+  border: 5px outset;
+  cursor: pointer;
+
+}
+
+.prueba-boton:active{
+  border: 5px inset;
+}
+
+.prueba-contenido-oculto{
+  transition:width 1s;
+  width:0px;
+  height:50px;
+  overflow: hidden;
+  background-color: #fff;
+  align-self: flex-start;
+
+}
+
+.prueba-contenido-oculto.visible{
+  transition:width 1s;
+  width:100px;
+
+}

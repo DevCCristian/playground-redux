@@ -11,6 +11,10 @@ const authReducer = (state = initialState, action)=>{
                 ...state,
                 usuario: action.payload
             }
+        case 'logOut':
+            return {
+                ...initialState
+            }
         default:
             return state
     }
