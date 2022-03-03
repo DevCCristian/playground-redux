@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const filtroActions = {
+const productosActions = {
     
     fetchearProductos: () =>{
        return async(dispatch, getState) => {
@@ -52,4 +52,4 @@ const filtroActions = {
 
 }
 
-export default filtroActions;
+export default productosActions;

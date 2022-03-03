@@ -1,20 +1,12 @@
 
 const initialState = {
-    usuario:{userName:''},
+    usuario:{},
 }
 
 const authReducer = (state = initialState, action)=>{
 
     switch(action.type){
-       case 'usuario':
-            return {
-                ...state,
-                usuario: action.payload
-            }
-        case 'logOut':
-            return {
-                ...initialState
-            }
+  
         default:
             return state
     }

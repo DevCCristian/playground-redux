@@ -1,15 +1,16 @@
 import React from 'react';
 import Header from "../components/Header";
 import Inputs from '../components/Inputs'
-import {connect} from 'react-redux';
-import filtroActions from '../redux/actions/filtroActions'
+// import {connect} from 'react-redux';
+// import productosActions from '../redux/actions/productosActions'
 
 class Formulario extends React.Component {
 
 
     handleSubmit = async (name, precio)=>{
-        this.props.cargarProducto(name,precio)
-
+        // this.props.cargarProducto(name,precio)
+        console.log("Nombre: "+name)
+        console.log("Precio: "+precio)
     }
 
     render() { 
@@ -24,13 +25,14 @@ class Formulario extends React.Component {
     }
 }
  
- const mapStateToProps = (state) =>{
-     return {
-        usuario: state.filtroReducer.usuario,
-     }
- }
- const mapDispatchToProps = {
-    cargarProducto: filtroActions.cargarProducto
- }
+//  const mapStateToProps = (state) =>{
+//      return {
+//         usuario: state.productosReducer.usuario,
+//      }
+//  }
+//  const mapDispatchToProps = {
+//     cargarProducto: productosActions.cargarProducto
+//  }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Formulario);
+// export default connect(mapStateToProps, mapDispatchToProps)(Formulario);
+export default Formulario;

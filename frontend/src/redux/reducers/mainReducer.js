@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
-import filtroReducer from './filtroReducer'
+import productosReducer from './productosReducer'
 import authReducer from './authReducer'
 const mainReducer = combineReducers({
 
-    filtroReducer,
+    productosReducer,
     authReducer
 
 })

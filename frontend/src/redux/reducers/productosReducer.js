@@ -1,11 +1,10 @@
 
 const initialState = {
     productos:[],
-    usuario:{userName:''},
     auxiliar:[]
 }
 
-const filtroReducer = (state = initialState, action)=>{
+const productosReducer = (state = initialState, action)=>{
 
     switch(action.type){
         case 'fetch':
@@ -21,11 +20,6 @@ const filtroReducer = (state = initialState, action)=>{
                 productos: action.payload
             }
 
-        case 'usuario':
-            return {
-                ...state,
-                usuario: action.payload
-            }
         case 'cargarProducto':
             let productos = [...state.productos]
             productos.push(action.payload)
@@ -48,4 +42,4 @@ const filtroReducer = (state = initialState, action)=>{
 
 
 }
-export default filtroReducer
+export default productosReducer

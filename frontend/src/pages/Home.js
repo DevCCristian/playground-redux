@@ -7,7 +7,7 @@ class Home extends React.Component {
         <div className="container">
             <Header/>
             <main className="main-home">
-                <h1>Playground backend</h1>
+                <h1>Playground REDUX</h1>
             </main>
         </div>);
     }
