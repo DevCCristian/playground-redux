@@ -33,32 +33,24 @@ const productosControllers = {
     },
     cargarUnProducto: (req,res)=>{
         const {name, precio, description, stock} = req.body
-        if (req.user) {
-            new Producto({name, precio, description, stock}).save()
-            .then((respuesta) => res.json({respuesta}))
-        }else{
-            res.json({success: true, error:'El usuario no es autentico, prueba loguearte de nuevo.'})
-        }
-        
+        new Producto({name, precio, description, stock}).save()
+        .then((respuesta) => res.json({respuesta}))
 
         // res.json({respuesta: productos})
     },
     borrarUnProducto: async(req,res)=>{
         const id = req.params.id
         let productos
-        console.log(req.user)
-        if (req.user) {
-            try{
-                await Producto.findOneAndDelete({_id:id})
-                productos = await Producto.find()
 
-            }catch(error){
-                console.log(error)
-            }
-            res.json({respuesta: productos,success:true})
-        }else{
-            res.json({success: true, error:'El usuario no es autentico'})
+        try{
+            await Producto.findOneAndDelete({_id:id})
+            productos = await Producto.find()
+
+        }catch(error){
+            console.log(error)
         }
+        res.json({respuesta: productos,success:true})
+
 
     },
     modificarProducto: async(req,res)=>{

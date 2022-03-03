@@ -5,23 +5,16 @@ const productosActions = {
     fetchearProductos: () =>{
        return async(dispatch, getState) => {
             const res = await axios.get('http://localhost:4000/api/productos')
-            // .then(res => dispatch({type:'fetch', payload:res.data.respuesta}))
             dispatch({type:'fetch', payload:res.data.respuesta})
        }
     },
     borrarProducto: (id)=>{
         return async(dispatch, getState) => {
-            const token = localStorage.getItem('token')
-            console.log(token)
             try {
             
-            const res = await axios.delete('http://localhost:4000/api/productos/'+id,{
-                headers:{
-                    'Authorization': 'Bearer '+token
-                }
-            })
+                const respuesta = await axios.delete('http://localhost:4000/api/productos/'+id)
 
-            dispatch({type:'delete', payload:res.data.respuesta})
+                dispatch({type:'delete', payload:respuesta.data.respuesta})
 
             }catch(err){
                 console.log(err)
@@ -35,12 +28,7 @@ const productosActions = {
     },
     cargarProducto: (name,precio)=>{
         return async(dispatch,getState)=>{
-            const token = localStorage.getItem('token')
-            const respuesta = await axios.post('http://localhost:4000/api/productos',{name,precio},{
-                headers:{ 
-                    'Authorization':`Bearer ${token}`
-                }
-            })
+            const respuesta = await axios.post('http://localhost:4000/api/productos',{name,precio})
             dispatch({type:'cargarProducto', payload:respuesta.data.respuesta})
 
         }

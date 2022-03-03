@@ -1,7 +1,7 @@
 import React from 'react'
 // import axios from 'axios'
 import Header from '../components/Header'
-// import {connect} from 'react-redux'
+import {connect} from 'react-redux'
 
 class Elemento extends React.Component {
     constructor(props) {
@@ -9,12 +9,12 @@ class Elemento extends React.Component {
         // console.log(props)
     }
 
-    state = {elemento:{name: this.props.params.name, precio:this.props.params.price}}
-    // endpoint = this.props.params.endpoint
-    // id = this.props.params.id
+    state = {elemento:{}}
+    id = this.props.params.id
+
 
     componentDidMount() {
-        // this.setState({elemento:this.props.productos.find(p => p._id === this.id)})
+        this.setState({elemento:this.props.productos.find(elemento => elemento._id === this.id)})
     }
 
     render() { 
@@ -27,11 +27,11 @@ class Elemento extends React.Component {
     }
 }
 
-// const mapStateToProps = (state) =>{
-//     return {
-//         productos: state.productosReducer.productos
-//     }
-// }
+const mapStateToProps = (state) =>{
+    return {
+        productos: state.pepito.productos
+    }
+}
  
-// export default connect(mapStateToProps)(Elemento);
-export default Elemento;
+export default connect(mapStateToProps)(Elemento);
+

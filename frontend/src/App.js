@@ -25,7 +25,7 @@ const App = (props)=> {
         <Route path="/" element={<Home />} />
         <Route path="/lista" element={<Lista />} />
         <Route path="/formulario" element={<Formulario />} />
-        <Route path="/productos/:name/:price" element={<Elemento />} />
+        <Route path="/productos/:id" element={<Elemento />} />
         <Route path="*" element={<Home/>}/>
       </Routes>
       <ToastContainer

@@ -1,13 +1,15 @@
 
 const initialState = {
     productos:[],
-    auxiliar:[]
+    auxiliar:[],
+    pepito:'pépito'
 }
 
 const productosReducer = (state = initialState, action)=>{
 
     switch(action.type){
         case 'fetch':
+            
             return {
                 ...state,
                 productos: action.payload,

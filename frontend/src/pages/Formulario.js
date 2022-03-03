@@ -1,14 +1,14 @@
 import React from 'react';
 import Header from "../components/Header";
 import Inputs from '../components/Inputs'
-// import {connect} from 'react-redux';
-// import productosActions from '../redux/actions/productosActions'
+import {connect} from 'react-redux';
+import productosActions from '../redux/actions/productosActions'
 
 class Formulario extends React.Component {
 
 
     handleSubmit = async (name, precio)=>{
-        // this.props.cargarProducto(name,precio)
+        this.props.cargarProducto(name,precio)
         console.log("Nombre: "+name)
         console.log("Precio: "+precio)
     }
@@ -25,14 +25,9 @@ class Formulario extends React.Component {
     }
 }
  
-//  const mapStateToProps = (state) =>{
-//      return {
-//         usuario: state.productosReducer.usuario,
-//      }
-//  }
-//  const mapDispatchToProps = {
-//     cargarProducto: productosActions.cargarProducto
-//  }
+ const mapDispatchToProps = {
+    cargarProducto: productosActions.cargarProducto
+ }
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Formulario);
-export default Formulario;
+export default connect(null, mapDispatchToProps)(Formulario);
+// export default Formulario;

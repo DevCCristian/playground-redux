@@ -3,19 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-// import { createStore, applyMiddleware } from 'redux';
-// import { Provider } from 'react-redux';
-// import thunk from 'redux-thunk';
-// import mainReducer from './redux/reducers/mainReducer';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import mainReducer from './redux/reducers/mainReducer';
 
-// const reduxStore = createStore(mainReducer,applyMiddleware(thunk))
+const reduxStore = createStore(mainReducer,applyMiddleware(thunk))
 
 ReactDOM.render(
-  // <Provider store={reduxStore}>
   <React.StrictMode>
-      <App />
+    <Provider store={reduxStore}>
+        <App />
+    </Provider>
   </React.StrictMode>,
-  // </Provider>,
   document.getElementById('root')
 );
 
